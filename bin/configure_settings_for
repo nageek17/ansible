@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+system %(ansible-playbook playbooks/misc/run_role.yml -e "ROLE=configure_settings" -e "HOST_GROUPS=#{ARGV.join(':')}")

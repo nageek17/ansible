@@ -1,0 +1,8 @@
+#!/bin/bash
+# run a role on a host group with a few optional parameters
+# ...from any directory on your machine
+
+# sample execution:
+# arr ssh homeowners_preprod_cluster --check
+
+ansible-playbook /ansible/playbooks/misc/run_role.yml  -e "ROLE=$1" -e "HOST_GROUPS=$2" $3 $4 $5
