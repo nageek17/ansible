@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ansible:
+    build: .
+    env_file:
+      - '.env'
+      - '.additional_env'
+    volumes:
+      - '.:/ansible'
+      - '~/.ssh:/root/.ssh'
+      - '~/.aws:/root/.aws'
+      - '~/.gitconfig:/root/.gitconfig'
+      - '../settings-files:/settings-files'
+    working_dir: /ansible 

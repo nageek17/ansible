@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+
+echo "Cloning submodules"
+git submodule update --init --recursive
+
+if ! [ -x "$(command -v git-crypt)" ]; then
+  echo "Installing git-crypt"
+  brew install git-crypt
+fi
+
+if [ ! -f settings.key ]; then
+  echo "You need a settings.key to unlock this repo"
+  exit 1
+fi
+
+git-crypt unlock settings.key
